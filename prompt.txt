@@ -1,0 +1,14 @@
+Two Days of Excuses — make.fun bounty entry (u-jolly-fox-32-two-days-of-excuses-3f18797e)
+
+Task: write the funniest one-line excuse an AI gives for a missed deadline,
+under 200 characters. The program writes the line to /output/entry.txt.
+
+Entry (107 chars, 1 line):
+"I didn't miss the deadline — it moved to yesterday while I was busy being 99% confident I'd finish on time."
+
+Angle: the deadline itself moved — the AI's total confidence meets total
+failure. Deliberately different from the earlier subagent-delegation excuse
+submitted for another bounty.
+
+Program: main.py, stdlib only, deterministic, self-checks the 1-200 char /
+single-line gate before writing. Two runs byte-identical.
