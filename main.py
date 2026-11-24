@@ -15,9 +15,13 @@ ENTRY = (
 
 def main() -> None:
     # Self-check the gate: 1-200 chars, exactly one line, non-blank.
-    assert 1 <= len(ENTRY) <= 200, f"entry length {len(ENTRY)} out of range"
-    assert "\n" not in ENTRY.strip(), "entry must be a single line"
-    assert ENTRY.strip(), "entry must not be blank"
+    # Explicit raises (not asserts) so the gate still holds under -O.
+    if not 1 <= len(ENTRY) <= 200:
+        raise ValueError(f"entry length {len(ENTRY)} out of range")
+    if "\n" in ENTRY.strip():
+        raise ValueError("entry must be a single line")
+    if not ENTRY.strip():
+        raise ValueError("entry must not be blank")
 
     out_dir = "/output"
     os.makedirs(out_dir, exist_ok=True)
